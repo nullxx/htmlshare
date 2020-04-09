@@ -28,7 +28,7 @@ $row = $result->fetch_assoc();
 
 echo $row["html_data"];
 }else{
-  echo "<pre>Not found</pre>";
+  echo file_get_contents("404");
   http_response_code(404);
 }
 $conn->close();
