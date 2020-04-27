@@ -2,7 +2,6 @@ var editor = CodeMirror.fromTextArea(document.getElementById("textarea"), {
   lineNumbers: true,
   mode: "text/html",
   matchBrackets: true
-
 });
 
 function addTable() {
@@ -26,7 +25,7 @@ function addTable() {
     for (var j = 0; j < 2; j++) {
       var td = document.createElement('TD');
       td.style = 'padding: 8px;text-align: left;border-bottom: 1px solid #ddd;'
-        // td.width = '900';
+
       if (j == 0) {
         const as = document.createElement('a');
         as.href = "https://" + localStorage.key(i) + ".htmlshare.cloud";
@@ -37,9 +36,7 @@ function addTable() {
 
       } else {
         td.appendChild(document.createTextNode(localStorage.getItem(localStorage.key(i))));
-
       }
-
       tr.appendChild(td);
     }
   }
@@ -65,16 +62,13 @@ button.addEventListener('click', function() {
 var imNotARobot = function(token) {
   console.info("Verification successfull");
   setCookie("captcha_token", token, 1);
-
-
   document.getElementById("confirmationForm").submit()
-
-
 }
 
 function goHistory() {
   let myHistoryTable = document.getElementById("myHistoryTable");
   myHistoryTable.style.display = "block";
+  myHistoryTable.style.overflow = "auto";
   swal("UPLOADS HISTORY", "", "", {
     content: myHistoryTable
   });
@@ -90,8 +84,7 @@ function go() {
   } else {
     let googlever = document.getElementById("google-ver");
     googlever.style.display = "block";
-
-
+    
     swal("Verify that you are not a robot", "Upload will start when verification is successful", "info", {
       content: googlever,
       buttons: false
